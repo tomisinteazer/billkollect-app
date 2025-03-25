@@ -18,11 +18,7 @@
 
     </section>
 
-    <!-- <div class="flex flex-col items-center justify-center h-screen">
-      <h1 class="text-7xl text-blue-700"> Welcome to <span class="font-bold">
-          BillKollect
-        </span></h1>
-    </div> -->
+
   </section>
 </template>
 
