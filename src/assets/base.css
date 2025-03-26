@@ -9,8 +9,7 @@ body{
 body{
   font-family: "Space Grotesk", serif;
   font-optical-sizing: auto;
-  background-image: url(img/bgmain.png);
-  background-repeat: repeat;
+ 
 }
 
 @theme {
