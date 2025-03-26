@@ -22,7 +22,7 @@ export const useCategoriesStore = defineStore('categories', {
 
       try {
         // Fetch categories using native fetch
-        const response = await fetch(`${apiStore.api}/Remita/get-billers`)
+        const response = await fetch(`${apiStore.api}/Remita/get-category`)
         
         // Check if the response is okay
         if (!response.ok) {
@@ -34,7 +34,7 @@ export const useCategoriesStore = defineStore('categories', {
         console.log(categories.data)
         this.categories = categories.data.sort((a, b) => {
             // Compare the lengths of category names
-            return a.billerName.length - b.billerName.length;
+            return a.categoryName.length - b.categoryName.length;
         });
       } catch (error) {
         // Handle potential errors

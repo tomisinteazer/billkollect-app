@@ -22,3 +22,15 @@ body{
   background-image: url(img/bgmain.png);
   background-repeat: repeat
 }
+::placeholder {
+  color: inherit;
+  opacity: 0.5; /* Firefox */
+}
+
+.bgpolka{
+  background-color: #ffffff;
+
+background-image:  radial-gradient(#0048cd30 0.8px, transparent 0.8px), radial-gradient(#0048cd30 0.8px, #ffffff 0.8px);
+background-size: 32px 32px;
+background-position: 0 0,16px 16px;
+}
