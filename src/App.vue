@@ -5,6 +5,19 @@
 
     <section class="fade-in-left">
       <navigationbar title=" me" />
+
+      <router-link to="/login">
+        <div class="bg-clifford  hover:bg-hard p-4 text-center" v-if="this.$route.path !== '/login'">
+          <p class="text-white font-semibold text-sm">
+            Please sign in to get access to more services →
+          </p>
+        </div>
+
+
+
+      </router-link>
+
+
       <transition name="slide-fade">
 
         <RouterView />
@@ -21,6 +34,20 @@
 
   </section>
 </template>
+
+<script>
+
+import { useCategoriesStore } from './stores/categories'
+export default {
+  name: 'App',
+
+  mounted() {
+    // Fetch categories when component is created
+    useCategoriesStore().fetchCategories()
+  }
+}
+
+</script>
 
 <!-- <script>
 import { RouterView } from 'vue-router'

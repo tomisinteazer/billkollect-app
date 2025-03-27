@@ -2,21 +2,29 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import NotFound from '../views/NotFound.vue'
 import MainPage from '@/views/MainPage.vue'
+import billerByCategoryPage from '@/views/billerByCategoryPage.vue'
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: '/login',
+      name: 'login',
       component: HomeView,
 
     },
     {
-      path: '/app',
-      name: 'app',
+      path: '/',
+      name: 'home',
       component: MainPage,
+
+    },
+
+    {
+      path: '/biller-by-category',
+      name: 'billersByCategory',
+      component: billerByCategoryPage,
 
     },
     //{

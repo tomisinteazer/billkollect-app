@@ -100,29 +100,50 @@
                             <div
                                 class="flex  title-font font-medium items-center md:justify-start justify-center text-zinc-100 rounded">
 
-                                <img src="https://openglassicons.pages.dev/100glassIcons/Group%20198.svg" alt=""
-                                    class="lg:h-24 lg:w-24 animate-pulse hover:rotate-45 hover:translate-x-3 transition-all duration-300">
+                                <img src="https://openglassicons.pages.dev/100glassIcons/Group%20191.svg" alt=""
+                                    class="lg:h-24 lg:w-24 animate-pulse">
 
-                                <span class=" lg:text-4xl text-xl">Lets Get Started.</span>
+                                <span class=" lg:text-4xl text-xl">{{ billersByCat.categoryName }}.</span>
                             </div>
                         </h2>
 
+                        <div v-if="billersByCat.loading">
+                            <h2 class="text-hard text-center lg:text-4xl text-xl py-8">Loading ...
+                            </h2>
+                        </div>
 
-                        <!-- Categories of Billers -->
+                        <div v-if="!billersByCat.loading && billersByCat.billersinCategory.length === 0">
+                            <h2 class="text-hard text-center lg:text-4xl text-xl py-8"> No Billers Found in this
+                                Category
+                            </h2>
+                        </div>
                         <div class="my-12">
                             <div class="flex flex-wrap justify-center gap-4">
                                 <!-- Biller Category: Utilities -->
-                                <div v-for="category in categories" :key="category.categoryId"
-                                    @click="setCategory(category.categoryId, category.categoryName)"
+                                <div v-for="biller in billersByCat.billersinCategory" :key="biller.billerId"
                                     class="flex flex-col items-center justify-center p-4 bg-blue-100/50 hover:bg-clifford hover:text-white text-hard backdrop-blur-md rounded-lg text-center transition-all duration-300 cursor-pointer w-4/9 lg:w-2/9 ">
                                     <div class="flex justify-center my-2">
-                                        <img src="https://openglassicons.pages.dev/100glassIcons/Group%20321.svg"
-                                            class=" hover:translate-y-3 transition-all duration-300 hover:scale-120"
+
+                                        <img :src="biller.billerLogoUrl" alt="" v-if="biller.billerLogoUrl"
+                                            class="h-20 w-20 object-center object-contain  rounded-full" />
+                                        <img v-else src="https://openglassicons.pages.dev/100glassIcons/Group%20195.svg"
                                             alt="">
                                     </div>
-                                    <p class="text-xl my-2">{{ category.categoryName }}</p>
+                                    <p class="text-xl my-2">{{ biller.billerName }}</p>
                                 </div>
+
+
                             </div>
+                            <router-link to="/" class="flex justify-center">
+                                <button
+                                    class="flex my-8 bg-clifford hover:bg-hard title-font font-medium items-center md:justify-start justify-center text-zinc-100 rounded">
+
+                                    <img src="https://openglassicons.pages.dev/100glassIcons/Group%20184.svg" alt=""
+                                        class="pl-2">
+
+                                    <span class="text-xl pr-4">Go Back</span>
+                                </button>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -151,8 +172,8 @@ export default {
         quicklinksslider
     },
     computed: {
-        categories() {
-            return useCategoriesStore().categories
+        billers() {
+            return useBillersByCategoryStore().billersinCategory
         }
         ,
         searchResult() {
@@ -162,16 +183,17 @@ export default {
 
     methods: {
 
-        setCategory(categoryId, categoryName) {
-            this.billersByCat.categoryName = categoryName
-            this.billersByCat.categoryId = categoryId
-            this.billersByCat.billersinCategory = []
+        setCategory(categoryId) {
+            this.billersByCat.billerId = categoryId
             this.$router.push('/biller-by-category')
         },
         searchBillers() {
             this.search.searchBillers()
         }
     },
-
+    mounted() {
+        // Fetch categories when component is created
+        useBillersByCategoryStore().fetchBillersInCategory()
+    }
 }
 </script>

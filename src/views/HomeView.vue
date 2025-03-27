@@ -17,7 +17,7 @@
           <h1 class="text-white text-6xl font-bold mb-2">BillKollect</h1>
           <p class="text-zinc-100 text-sm">Sign in with your email or continue without sign-in to get started.</p>
 
-          <router-link to="/app">
+          <router-link to="/">
 
             <button class="bg-white my-4 w-full  px-12 py-4 text-black lg:text-2xl text-xl "> Continue without
               sign-In</button>
