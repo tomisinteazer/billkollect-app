@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import NotFound from '../views/NotFound.vue'
 import MainPage from '@/views/MainPage.vue'
 import billerByCategoryPage from '@/views/billerByCategoryPage.vue'
+import biller from '@/views/biller.vue'
 
 
 const router = createRouter({
@@ -18,6 +19,12 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: MainPage,
+
+    },
+    {
+      path: '/biller',
+      name: 'biller',
+      component: biller,
 
     },
 

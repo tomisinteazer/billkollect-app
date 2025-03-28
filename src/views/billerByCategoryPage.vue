@@ -121,6 +121,7 @@
                             <div class="flex flex-wrap justify-center gap-4">
                                 <!-- Biller Category: Utilities -->
                                 <div v-for="biller in billersByCat.billersinCategory" :key="biller.billerId"
+                                    @click="setBiller(biller.billerId, biller.billerName, biller.billerLogoUrl)"
                                     class="flex flex-col items-center justify-center p-4 bg-blue-100/50 hover:bg-clifford hover:text-white text-hard backdrop-blur-md rounded-lg text-center transition-all duration-300 cursor-pointer w-4/9 lg:w-2/9 ">
                                     <div class="flex justify-center my-2">
 
@@ -159,13 +160,14 @@ import quicklinksslider from '@/components/quicklinksslider.vue'
 import { useCategoriesStore } from '@/stores/categories'
 import { useSearchStore } from '@/stores/search'
 import { useBillersByCategoryStore } from '@/stores/billersBycategory'
-
+import { useBillerStore } from '@/stores/billerProducts'
 export default {
     name: 'CategoryList',
     data() {
         return {
             search: useSearchStore(),
-            billersByCat: useBillersByCategoryStore()
+            billersByCat: useBillersByCategoryStore(),
+            biller: useBillerStore()
         }
     },
     components: {
@@ -183,9 +185,11 @@ export default {
 
     methods: {
 
-        setCategory(categoryId) {
-            this.billersByCat.billerId = categoryId
-            this.$router.push('/biller-by-category')
+        setBiller(billerId, billerName, logo) {
+            this.biller.billerId = billerId
+            this.biller.billerName = billerName
+            this.biller.billerLogo = logo
+            this.$router.push('/biller')
         },
         searchBillers() {
             this.search.searchBillers()

@@ -1,25 +1,23 @@
+
 // stores/categoriesStore.ts
 import { defineStore } from 'pinia'
 import { useApiStore } from './api'
 
-export const useBillersByCategoryStore = defineStore('billersBycategory', {
+export const useBillerStore = defineStore('biller', {
   // State for storing categories
   state: () => ({
-    categoryId:"",
-    categoryName:"",
-    billersinCategory:[],
+    billerId:"",
+    billerName:"",
+    billerLogo:"",
+    biller:{},
     loading: false,
     error: null ,
    
   }),
 
-  getters: {
-    noOfBillers: (state) => state.billersinCategory.length? state.billersinCategory.length : 0,
-  },
-
   // Actions to fetch categories
   actions: {
-    async fetchBillersInCategory() {
+    async fetchBiller() {
       // Get API URL from apiStore
       const apiStore = useApiStore()
       
@@ -29,7 +27,7 @@ export const useBillersByCategoryStore = defineStore('billersBycategory', {
 
       try {
         // Fetch categories using native fetch
-        const response = await fetch(`${apiStore.api}Remita/get-biller-by-category-id?CategoryID=${this.categoryId}`)
+        const response = await fetch(`${apiStore.api}/Remita/get-biller-products?billerId=${this.billerId}`)
         
         // Check if the response is okay
         if (!response.ok) {
@@ -38,8 +36,8 @@ export const useBillersByCategoryStore = defineStore('billersBycategory', {
         
         // Parse JSON response
         let billers = await response.json()
-        this.billersinCategory = billers.data !== null ? billers.data : [];
-        console.log(this.billersinCategory)
+        this.biller = billers.data !== null ? billers.data : [];
+   
        
       } catch (error) {
         // Handle potential errors
@@ -50,3 +48,4 @@ export const useBillersByCategoryStore = defineStore('billersBycategory', {
     }
   }
 })
+

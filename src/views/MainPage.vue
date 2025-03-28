@@ -11,14 +11,6 @@
             <quicklinksslider></quicklinksslider>
 
             <!-- quick links -->
-
-
-
-
-
-
-
-
             <!-- Main Content Container -->
             <section class="">
                 <div class="flex-grow flex flex-col items-center justify-center p-4">
@@ -100,7 +92,7 @@
                             <div
                                 class="flex  title-font font-medium items-center md:justify-start justify-center text-zinc-100 rounded">
 
-                                <img src="https://openglassicons.pages.dev/100glassIcons/Group%20198.svg" alt=""
+                                <img src="/src/assets/img/100glassIcons/Group 198.svg" alt=""
                                     class="lg:h-24 lg:w-24 animate-pulse hover:rotate-45 hover:translate-x-3 transition-all duration-300">
 
                                 <span class=" lg:text-4xl text-xl">Lets Get Started.</span>
