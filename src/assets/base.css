@@ -22,14 +22,110 @@ body{
   background-image: url(img/bgmain.png);
   background-repeat: repeat
 }
-::placeholder {
-  color: inherit;
-  opacity: 0.5; /* Firefox */
-}
+
+
 
 .bgpolka{
 background-color: #e1ebff;
 background-image:  radial-gradient(#03144130 0.8px, transparent 0.8px), radial-gradient(#03144130 0.8px, #ffffff 0.8px);
 background-size: 32px 32px;
 background-position: 0 0,16px 16px;
+}
+
+
+
+
+.input-label {
+  transform: scale(0.75) translate(-0.5rem, -2.25rem);
+  display: block;
+  padding: 0.25rem;
+  position: absolute;
+  left: 0.75rem;
+  top: 0.7375rem;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: transform .15s ease-out, color .15s ease-out;
+  pointer-events: none;
+  transform-origin: left center;
+  white-space: nowrap;
+  background-color: #ffffff;
+
+
+}
+
+input[type="checkbox"] {
+  accent-color: #0047cd;
+
+  /* Increase the height */
+  transform: scale(1.5);
+  /* Scale the checkbox */
+  -webkit-transform: scale(1.5);
+  /* For Safari */
+  margin-right: 5px;
+  /* This will change the checkbox color */
+}
+
+.icon {
+  position: absolute;
+  top: 1.125rem;
+  right: 1rem;
+  width: .75rem;
+  height: .75rem;
+  border: 2px solid var(--color-text-secondary);
+  border-top: 0;
+  border-left: 0;
+  transform: scaleY(1.5) scaleX(1.5) rotate(0deg);
+  transition: color .2s ease, transform .2s ease, top .2s ease;
+}
+
+.MenuItem {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+
+
+  align-items: center;
+  color: white;
+
+}
+
+.MenuItem:hover {
+  background: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.country-code {
+  margin-left: auto;
+  opacity: .5;
+  padding-right: .25rem;
+}
+
+.country-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 1rem;
+  text-align: left;
+}
+
+.country-flag {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.card {
+  box-shadow: 0 .25rem .5rem .125rem #1010109c;
+}
+.rotay{
+  transform:scaleY(-1) scaleY(1.5) scaleX(1.5);
+}
+::placeholder {
+  color: inherit;
+  opacity: 0.5; /* Firefox */
 }
