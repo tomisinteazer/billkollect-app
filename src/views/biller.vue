@@ -28,7 +28,7 @@
 
             <!-- Product Selection -->
             <div class="mb-6">
-                <label for="product-select" class="block text-sm font-medium text-gray-700 mb-2">Select Product</label>
+                <label for="product-select" class="block text-sm font-medium text-zinc-700 mb-2">Select Product</label>
                 <select id="product-select" v-model="selectedProductId" @change="handleProductSelection"
                     class="w-full p-3 border border-zinc-300 rounded-md">
                     <option value="" disabled>Choose a product</option>
@@ -40,19 +40,19 @@
             </div>
 
             <!-- Product Details -->
-            <div v-if="selectedProduct" class="mb-6 p-4 bg-gray-50 rounded-md">
+            <div v-if="selectedProduct" class="mb-6 p-4 bg-clifford/5 rounded-md text-hard">
                 <div class="grid grid-cols-2 gap-4">
 
                     <div v-if="selectedProduct.isAmountFixed">
-                        <span class="text-sm text-gray-500">Amount,</span>
+                        <span class="text-sm text-zinc-500">Amount,</span>
                         <p>{{ selectedProduct.isAmountFixed ? 'Fixed' : 'Not Fixed' }}</p>
                     </div>
                     <div v-if="selectedProduct.isAmountFixed">
-                        <span class="text-sm text-gray-500">Amount to Pay.</span>
+                        <span class="text-sm text-zinc-500">Amount to Pay.</span>
                         <p>{{ formatCurrency(selectedProduct.amount) }}</p>
                     </div>
                     <div>
-                        <span class="text-sm text-gray-500">Currency:</span>
+                        <span class="text-sm text-zinc-500">Currency:</span>
                         <p>{{ selectedProduct.currency }}</p>
                     </div>
 
@@ -61,28 +61,28 @@
 
             <!-- Dynamic Form -->
             <div v-if="selectedProduct && selectedProduct.metadata && selectedProduct.metadata.customFields"
-                class="border rounded-lg p-6 bg-gray-50">
+                class="border border-clifford/50 rounded-lg p-6 bg-zinc-50">
                 <form @submit.prevent="submitForm">
                     <div class="space-y-6">
                         <!-- Amount Field (if not fixed) -->
                         <div v-if="!selectedProduct.isAmountFixed" class="grid gap-2">
-                            <label for="amount" class="block text-sm font-medium text-gray-700">
+                            <label for="amount" class="block text-sm font-medium text-zinc-700">
                                 Amount ({{ selectedProduct.currency }}) *
                             </label>
                             <input id="amount" type="number" v-model="formData.amount" required
-                                class="p-2 border border-gray-300 rounded-md" placeholder="Enter amount" />
+                                class="p-2 border border-zinc-300 rounded-md" placeholder="Enter amount" />
                         </div>
 
                         <!-- Custom Fields -->
                         <div v-for="field in sortedCustomFields" :key="field.variableId" class="grid gap-2">
-                            <label :for="field.variable_name" class="block text-sm font-medium text-gray-700">
+                            <label :for="field.variable_name" class="block text-sm font-medium text-zinc-700">
                                 {{ field.display_name }} {{ field.required ? '*' : '' }}
                             </label>
 
                             <!-- Dropdown for singleselect type -->
                             <select v-if="field.type === 'singleselect'" :id="field.variable_name"
                                 v-model="formData[field.variable_name]" :required="field.required"
-                                class="p-2 border border-gray-300 rounded-md">
+                                class="p-2 border border-zinc-300 rounded-md">
                                 <option value="" disabled>Select an option</option>
                                 <option v-for="option in field.customFieldDropDown" :key="option.id"
                                     :value="option.code">
@@ -93,12 +93,12 @@
                             <!-- Text input for alphanumeric type -->
                             <input v-else-if="field.type === 'alphanumeric'" :id="field.variable_name" type="text"
                                 v-model="formData[field.variable_name]" :required="field.required"
-                                class="p-2 border border-gray-300 rounded-md"
+                                class="p-2 border border-zinc-300 rounded-md"
                                 :placeholder="`Enter ${field.display_name}`" />
 
                             <!-- Default input for other types -->
                             <input v-else :id="field.variable_name" type="text" v-model="formData[field.variable_name]"
-                                :required="field.required" class="p-2 border border-gray-300 rounded-md"
+                                :required="field.required" class="p-2 border border-zinc-300 rounded-md"
                                 :placeholder="`Enter ${field.display_name}`" />
                         </div>
                     </div>
