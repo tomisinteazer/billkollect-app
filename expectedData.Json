@@ -1,0 +1,81 @@
+{
+    "billerId": "S0000572202",
+    "categoryId": "7",
+    "products": [
+        {
+            "billPaymentProductName": "NATIONAL DRIVERS LICENSE",
+            "billPaymentProductId": "10713194445",
+            "isAmountFixed": false,
+            "amount": 0,
+            "currency": "NGN",
+            "metadata": {
+                "customFields": [
+                    {
+                        "display_name": "State",
+                        "variable_name": "state",
+                        "validation": false,
+                        "type": "singleselect",
+                        "required": false,
+                        "sortOrder": "1",
+                        "variableId": 10713194405,
+                        "singleSelect": "N",
+                        "customFieldDropDown": [
+                            {
+                                "id": "10713194406",
+                                "description": "Abia State",
+                                "unitprice": 0,
+                                "accountid": 0,
+                                "code": "Abia State",
+                                "fixedprice": "false",
+                                "itemphoto": null,
+                                "itemname": null
+                            },
+                            {
+                                "id": "10713194407",
+                                "description": "Adamawa State",
+                                "unitprice": 0,
+                                "accountid": 0,
+                                "code": "Adamawa State",
+                                "fixedprice": "false",
+                                "itemphoto": null,
+                                "itemname": null
+                            },
+                            {
+                                "id": "10713194408",
+                                "description": "Akwa Ibom State",
+                                "unitprice": 0,
+                                "accountid": 0,
+                                "code": "Akwa Ibom State",
+                                "fixedprice": "false",
+                                "itemphoto": null,
+                                "itemname": null
+                            }
+                        ]
+                    },
+                    {
+                        "display_name": "Description",
+                        "variable_name": "description",
+                        "validation": false,
+                        "type": "alphanumeric",
+                        "required": false,
+                        "sortOrder": "2",
+                        "variableId": 10713194444,
+                        "singleSelect": "N",
+                        "customFieldDropDown": []
+                    },
+                    {
+                        "display_name": "GIFMIS Code - ( If unknown Contact MDA)",
+                        "variable_name": "gifmis_code_-_(_if_unknown_contact_mda)",
+                        "validation": false,
+                        "type": "alphanumeric",
+                        "required": false,
+                        "sortOrder": "3",
+                        "variableId": 10713194443,
+                        "singleSelect": "N",
+                        "customFieldDropDown": []
+                    }
+                ]
+            }
+        }
+    ]
+}

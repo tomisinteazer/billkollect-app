@@ -35,8 +35,9 @@ export const useBillerStore = defineStore('biller', {
         }
         
         // Parse JSON response
-        let billers = await response.json()
-        this.biller = billers.data !== null ? billers.data : [];
+        let biller = await response.json()
+        this.biller = biller.data !== null ? biller.data : [];
+        console.log(" product please",biller.data)
    
        
       } catch (error) {
