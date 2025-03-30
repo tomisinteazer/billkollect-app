@@ -42,22 +42,20 @@
             <!-- Product Details -->
             <div v-if="selectedProduct" class="mb-6 p-4 bg-gray-50 rounded-md">
                 <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <span class="text-sm text-gray-500">Product ID:</span>
-                        <p>{{ selectedProduct.billPaymentProductId }}</p>
+
+                    <div v-if="selectedProduct.isAmountFixed">
+                        <span class="text-sm text-gray-500">Amount,</span>
+                        <p>{{ selectedProduct.isAmountFixed ? 'Fixed' : 'Not Fixed' }}</p>
                     </div>
-                    <div>
-                        <span class="text-sm text-gray-500">Amount Type:</span>
-                        <p>{{ selectedProduct.isAmountFixed ? 'Fixed' : 'Variable' }}</p>
+                    <div v-if="selectedProduct.isAmountFixed">
+                        <span class="text-sm text-gray-500">Amount to Pay.</span>
+                        <p>{{ formatCurrency(selectedProduct.amount) }}</p>
                     </div>
                     <div>
                         <span class="text-sm text-gray-500">Currency:</span>
                         <p>{{ selectedProduct.currency }}</p>
                     </div>
-                    <div v-if="selectedProduct.isAmountFixed">
-                        <span class="text-sm text-gray-500">Fixed Amount:</span>
-                        <p>{{ formatCurrency(selectedProduct.amount) }}</p>
-                    </div>
+
                 </div>
             </div>
 
@@ -106,8 +104,8 @@
                     </div>
 
                     <div class="mt-6">
-                        <button type="submit" class="py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                            Submit Payment
+                        <button type="submit" class="py-2 px-4 bg-clifford text-white rounded-md hover:bg-hard">
+                            Continue
                         </button>
                     </div>
                 </form>
