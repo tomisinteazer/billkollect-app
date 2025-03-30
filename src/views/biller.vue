@@ -13,7 +13,7 @@
             </div>
         </h2>
 
-        <div v-if="biller.loading">
+        <div v-if="biller.loading" class="bg-white">
             <h2 class="text-hard text-center lg:text-4xl text-xl py-8">Loading ...
             </h2>
             <div class="flex items-center justify-center p-6">
@@ -30,7 +30,7 @@
             <div class="mb-6">
                 <label for="product-select" class="block text-sm font-medium text-gray-700 mb-2">Select Product</label>
                 <select id="product-select" v-model="selectedProductId" @change="handleProductSelection"
-                    class="w-full p-3 border border-gray-300 rounded-md">
+                    class="w-full p-3 border border-zinc-300 rounded-md">
                     <option value="" disabled>Choose a product</option>
                     <option v-for="product in biller.biller.products" :key="product.billPaymentProductId"
                         :value="product.billPaymentProductId">
@@ -142,14 +142,9 @@ export default {
     },
 
     watch: {
-        billerProductsLength(newValue, oldValue) {
-
-            if (this.biller.biller.products.length > 0) {
-                this.selectedProductId = this.biller.biller.products[0].billPaymentProductId;
-                this.handleProductSelection();
-            }
-
-
+        billerProductsLength() {
+            this.selectedProductId = this.biller.biller.products[0].billPaymentProductId;
+            this.handleProductSelection();
         },
     },
 
