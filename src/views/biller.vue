@@ -19,11 +19,11 @@
                         <h2
                             class="text-hard flex justify-center  bg-clifford text-center  rounded-tr-2xl rounded-tl-2xl">
                             <div
-                                class="flex  title-font font-medium items-center md:justify-start justify-center text-zinc-100 rounded">
+                                class="flex flex-col my-8  title-font font-medium items-center md:justify-start justify-center text-zinc-100 rounded">
 
                                 <img :src="biller.billerLogo" alt="" nss class="lg:h-24  h-16  p-4 ">
 
-                                <span class=" lg:text-4xl text-xl">{{ biller.billerName }}.</span>
+                                <span class=" lg:text-4xl text-xl">{{ biller.billerName }}</span>
                             </div>
                         </h2>
 
@@ -37,98 +37,99 @@
                             </h2>
                         </div>
                         <div class="my-12">
-                            <div class="flex flex-col justify-center gap-4">
+                            <div class="flex flex-col justify-center">
                                 <div v-for="product in biller.biller.products" :key="product"
                                     class="flex flex-col items-center justify-center p-4 hover:text-hard text-hard backdrop-blur-md rounded-lg text-center transition-all duration-300 cursor-pointer ">
                                     <div class="flex justify-center my-2">
 
-                                        <section class="text-blue-600 body-font relative">
+                                        <section class="text-blue-600 body-font ">
 
-                                            <div class="flex flex-col text-center w-full mb-12">
+                                            <div class="flex flex-col text-center mb-12">
                                                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-hard">
                                                     {{ product.billPaymentProductName }}</h1>
                                             </div>
 
-                                            <section class="text-zinc-600 body-font relative">
-
-                                                <div class="  my-10">
-                                                    <div class="flex flex-wrap m-2">
-
-                                                        <div class=" relative m-2 w-full">
-                                                            <input type="text" id="name" name="name" @focus="dropdown"
-                                                                v-model="searchValue" @blur="slowDropdown"
-                                                                autocomplete="off"
-                                                                class="peer bg-transparent rounded-xl border border-zinc-600 h-14 text-hard focus:ring-2 focus:ring-hard hover:border-hard  outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out w-full ">
-                                                            <label for="name"
-                                                                class="input-label text-zinc-900 peer-focus:text-hard peer-hover:text-hard">Country</label>
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 512 512" class="icon"
-                                                                :class="dropdownState ? 'rotay' : ''">
-                                                                <path :fill="dropdownState ? '#031441' : '#555555'"
-                                                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                                                            </svg>
-                                                            <!--<p>Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc</p>.-->
-
-                                                        </div>
 
 
 
-                                                        <div class="w-full h-96 bg-clifford rounded-lg shadow overflow-hidden mt-2 transition ease-in-out delay-150"
-                                                            :class="dropdownState ? '' : 'hidden'">
-                                                            <div class="content h-[calc(100%-0.5rem)] overflow-y-auto ">
-
-                                                                <div class="Menu compact CountryCodeInput">
-                                                                    <div class="backdrop"></div>
-                                                                    <div role="presentation"
-                                                                        class="bubble menu-container custom-scroll opacity-transition fast left top shown open"
-                                                                        style="transform-origin: left top">
-
-                                                                        <div role="menuitem" tabindex="0"
-                                                                            class="MenuItem compact"
-                                                                            v-for="(country, i) in searchedinfo"
-                                                                            :key="i" @click="selectCountry(country)">
-                                                                            <span class="country-flag">{{
-                                                                                country.flag
-                                                                            }}</span><span class="country-name">{{
-                                                                                    country.name
-                                                                                }}</span><span class="country-code">{{
-                                                                                    country.code
-                                                                                }}</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
 
 
-                                                            </div>
 
-                                                        </div>
-                                                        <div class="p-2 w-full " :class="dropdownState ? 'hidden' : ''">
-                                                            <div class="relative">
-                                                                <input type="phone" id="email" name="email"
-                                                                    v-model="phone"
-                                                                    class=" peer w-full bg-transparent rounded-xl border border-zinc-600 h-14 focus:border-hard focus:ring-2 focus:ring-hardhover:border-hard text-hard outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                                                <label for="email"
-                                                                    class="input-label peer-focus:text-hard peer-hover:text-hard">Beneficiary
-                                                                    Phone Number*</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="p-2 w-full " :class="dropdownState ? 'hidden' : ''">
-                                                            <div class="relative">
-                                                                <input type="phone" id="email" name="email"
-                                                                    v-model="phone"
-                                                                    class=" peer w-full bg-transparent rounded-xl border border-zinc-600 h-14 focus:border-hard focus:ring-2 focus:ring-hardhover:border-hard text-hard outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                                                <label for="email"
-                                                                    class="input-label peer-focus:text-hard peer-hover:text-hard">
-                                                                    Amount to Recharge</label>
-                                                            </div>
-                                                        </div>
+                                            <div class="flex flex-col lg:min-w-[40vw] min-w-full mx-auto">
 
-                                                    </div>
+                                                <div class=" relative m-2 w-full ">
+                                                    <input type="text" id="name" name="name" @focus="dropdown"
+                                                        v-model="searchValue" @blur="slowDropdown" autocomplete="off"
+                                                        class="peer bg-transparent rounded-xl border border-clifford h-14 text-hard focus:ring-2 focus:ring-hard hover:border-hard  outline-none py-1 px-3  transition-colors duration-200 ease-in-out w-full ">
+                                                    <label for="name"
+                                                        class="input-label text-clifford peer-focus:text-hard peer-hover:text-hard">Country</label>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                        class="icon" :class="dropdownState ? 'rotay' : ''">
+                                                        <path :fill="dropdownState ? '#031441' : '#555555'"
+                                                            d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+                                                    </svg>
+                                                    <!--<p>Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc</p>.-->
+
                                                 </div>
 
 
 
-                                            </section>
+                                                <div class=" m-2 w-full h-24 bg-clifford rounded-lg shadow overflow-hidden mt-2 transition ease-in-out delay-150 duration-500"
+                                                    v-if="dropdownState" :class="dropdownState ? '' : 'hidden'">
+                                                    <div class=" h-[calc(100%-0.5rem)] overflow-y-auto ">
+
+                                                        <div class="Menu CountryCodeInput">
+                                                            <div class="backdrop"></div>
+                                                            <div role="presentation"
+                                                                class="bubble menu-container custom-scroll opacity-transition fast left top shown open"
+                                                                style="transform-origin: left top">
+
+                                                                <div role="menuitem" tabindex="0" class="MenuItem "
+                                                                    v-for="(country, i) in searchedinfo" :key="i"
+                                                                    @click="selectCountry(country)">
+                                                                    <span class="country-flag">{{
+                                                                        country.flag
+                                                                        }}</span><span class="country-name">{{
+                                                                            country.name
+                                                                        }}</span><span class="country-code">{{
+                                                                            country.code
+                                                                        }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class=" m-2 relative  w-full " v-if="!dropdownState">
+                                                    <div class="relative">
+                                                        <input type="phone" id="email" name="email" v-model="phone"
+                                                            class=" peer w-full bg-transparent rounded-xl border border-clifford h-14 focus:border-hard focus:ring-2 focus:ring-hard hover:border-hard text-hard outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                                        <label for="email"
+                                                            class="input-label peer-focus:text-hard peer-hover:text-hard peer-focus">Beneficiary
+                                                            Phone Number*</label>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class=" m-2 w-full " :class="dropdownState ? 'hidden' : ''">
+                                                    <div class="relative">
+                                                        <input type="phone" id="email" name="email" v-model="amount"
+                                                            class=" peer w-full bg-transparent rounded-xl border border-clifford h-14 focus:border-hard focus:ring-2 focus:ring-hard hover:border-hard text-hard outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                                        <label for="amount"
+                                                            class="input-label peer-focus:text-hard peer-hover:text-hard">
+                                                            Amount to Recharge</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+
+
+
 
 
                                         </section>
@@ -173,7 +174,8 @@ export default {
             tFAScreen: true,
             currentCountry: { name: '', flag: '', code: '' },
             searchValue: '',
-            phone: '234456566777',
+            phone: '',
+            amount: '',
             specialWords: ''
         }
     },
