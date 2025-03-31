@@ -9,7 +9,7 @@ export const useBillerStore = defineStore('biller', {
     billerId:"",
     billerName:"",
     billerLogo:"",
-    biller:{},
+    biller:{products:[]},
     loading: false,
     error: null ,
    

@@ -37,7 +37,7 @@ export const useSearchStore = defineStore('search', {
         // Parse JSON response
         let result = await response.json()
         console.log(result.data)
-        this.searchResult = result.data
+        this.searchResult = result.data?result.data:[]
         // this.searchResult = categories.data.sort((a, b) => {
         //     // Compare the lengths of category names
         //     return a.billerName.length - b.billerName.length;

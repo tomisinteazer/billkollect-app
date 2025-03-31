@@ -2,39 +2,55 @@
     <div class="lg:w-5/9 w-full mx-auto overflow-hidden rounded-2xl">
         <div class="flex animate-scroll space-x-4 py-4">
             <!-- First row of items -->
-            <div v-for="item in items" :key="item.id"
+            <div v-for="item in categories" :key="item.categoryId"
+                @click="setCategory(item.categoryId, item.categoryName)"
                 :class="['transition-all duration-300 cursor-pointer bg-blue-50 hover:bg-clifford hover:text-white  w-52 h-32 items-center justify-center text-hard font-bold rounded-lg shadow-lg flex flex-col hover:shadow-none']">
                 <div class="flex justify-center m-2">
                     <img class="h-16 w-16" src="https://openglassicons.pages.dev/100glassIcons/Group%20195.svg" alt="">
                 </div>
-                <p class="  "> {{ item.text }} </p>
+                <p class="  "> {{ item.categoryName }} </p>
             </div>
 
             <!-- Duplicate items for infinite scroll effect -->
-            <div v-for="item in items" :key="`duplicate-${item.id}`"
+            <div v-for="item in categories" :key="`duplicate-${item.categoryId}`"
+                @click="setCategory(item.categoryId, item.categoryName)"
                 :class="['transition-all duration-300 cursor-pointer bg-blue-50 w-52 h-32 hover:bg-clifford hover:text-white items-center justify-center text-hard font-bold rounded-lg shadow-lg flex flex-col hover:shadow-none']">
                 <div class="flex justify-center  m-2">
                     <img class="h-16 w-16" src="https://openglassicons.pages.dev/100glassIcons/Group%20195.svg" alt="">
                 </div>
-                <p class="  "> {{ item.text }} </p>
+                <p class="  "> {{ item.categoryName }} </p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { useCategoriesStore } from '@/stores/categories';
+import { useBillersByCategoryStore } from '@/stores/billersBycategory';
 export default {
     name: 'InfiniteHorizontalScroll',
     data() {
         return {
-            items: [
-                { id: 1, text: 'Airtime & data' },
-                { id: 2, text: 'Credit & loans' },
-                { id: 3, text: 'Association & Society' },
-                { id: 4, text: 'Religious Institutions' }
-            ],
+            billersByCat: useBillersByCategoryStore()
 
         }
+
+    },
+
+    computed: {
+        categories() {
+            return [useCategoriesStore().categories[0], useCategoriesStore().categories[1], useCategoriesStore().categories[2], useCategoriesStore().categories[3]]
+        }
+    },
+    methods: {
+        setCategory(categoryId, categoryName) {
+            this.billersByCat.categoryName = categoryName
+            this.billersByCat.categoryId = categoryId
+            this.billersByCat.billersinCategory = []
+            useBillersByCategoryStore().fetchBillersInCategory()
+            this.$router.push('/biller-by-category')
+
+        },
     }
 }
 </script>

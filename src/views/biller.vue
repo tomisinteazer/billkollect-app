@@ -133,7 +133,6 @@ export default {
     data() {
         return {
             biller: useBillerStore(),
-
             selectedProductId: '',
             formData: {}
         };
@@ -228,14 +227,7 @@ export default {
     },
 
     mounted() {
-
-
-        // Fetch categories when component is created
         useBillerStore().fetchBiller()
-
-
-        // Set first product as default when component mounts
-
     }
 };
 </script>
