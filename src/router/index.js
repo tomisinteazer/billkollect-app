@@ -4,6 +4,7 @@ import NotFound from '../views/NotFound.vue'
 import MainPage from '@/views/MainPage.vue'
 import billerByCategoryPage from '@/views/billerByCategoryPage.vue'
 import biller from '@/views/biller.vue'
+import rrCheckout from '@/views/rrCheckout.vue'
 
 
 const router = createRouter({
@@ -25,6 +26,12 @@ const router = createRouter({
       path: '/biller',
       name: 'biller',
       component: biller,
+
+    },
+    {
+      path: '/rrcheckout',
+      name: 'rrcheckout',
+      component: rrCheckout,
 
     },
 
