@@ -6,7 +6,7 @@
 
 
 
-        <section class="w-full lg:py-20 py-10">
+        <section class="w-full lg:py-14 py-10">
 
             <quicklinksslider></quicklinksslider>
 
@@ -49,7 +49,7 @@
                                     @click="setCategory(category.categoryId, category.categoryName)"
                                     class="flex flex-col items-center justify-center p-4 bg-blue-100/50 hover:bg-clifford hover:text-white text-hard backdrop-blur-md rounded-lg text-center transition-all duration-300 cursor-pointer w-4/9 lg:w-2/9 ">
                                     <div class="flex justify-center my-2">
-                                        <img src="https://openglassicons.pages.dev/100glassIcons/Group%20321.svg"
+                                        <img :src="`/src/assets/img/100glassIcons/${category.categoryIcon}`"
                                             class=" hover:translate-y-3 transition-all duration-300 hover:scale-120"
                                             alt="">
                                     </div>

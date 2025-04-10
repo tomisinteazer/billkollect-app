@@ -5,7 +5,6 @@ import MainPage from '@/views/MainPage.vue'
 import billerByCategoryPage from '@/views/billerByCategoryPage.vue'
 import biller from '@/views/biller.vue'
 import rrCheckout from '@/views/rrCheckout.vue'
-import demoda from '@/views/demoda.vue'
 
 
 const router = createRouter({
@@ -35,14 +34,6 @@ const router = createRouter({
       component: rrCheckout,
 
     },
-
-    {
-      path: '/demoda',
-      name: 'demoda',
-      component: demoda,
-
-    },
-
     {
       path: '/biller-by-category',
       name: 'billersByCategory',

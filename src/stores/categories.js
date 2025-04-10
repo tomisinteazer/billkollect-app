@@ -34,7 +34,7 @@ export const useCategoriesStore = defineStore('categories', {
         console.log(categories.data)
         this.categories = categories.data.sort((a, b) => {
             // Compare the lengths of category names
-            return a.categoryId - b.categoryId;
+            return a.orderId - b.orderId;
         });
       } catch (error) {
         // Handle potential errors

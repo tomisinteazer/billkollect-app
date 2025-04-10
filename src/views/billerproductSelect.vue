@@ -4,7 +4,7 @@
     <section class="bgpolka flex align-center justify-center min-h-screen">
 
         <!-- Main Content Container -->
-        <section class="w-full lg:py-20 py-10">
+        <section class="w-full lg:py-14 py-10">
 
 
             <div class="flex-grow flex flex-col items-center justify-center px-2 ">
@@ -93,7 +93,7 @@
                                                                 @click="selectCountry(country)">
                                                                 <span class="country-flag">{{
                                                                     country.flag
-                                                                }}</span><span class="country-name">{{
+                                                                    }}</span><span class="country-name">{{
                                                                         country.name
                                                                     }}</span><span class="country-code">{{
                                                                         country.code

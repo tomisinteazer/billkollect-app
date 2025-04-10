@@ -6,7 +6,8 @@
                 @click="setCategory(item.categoryId, item.categoryName)"
                 :class="['transition-all duration-300 cursor-pointer bg-blue-50 hover:bg-clifford hover:text-white  w-52 h-32 items-center justify-center text-hard font-bold rounded-lg shadow-lg flex flex-col hover:shadow-none']">
                 <div class="flex justify-center m-2">
-                    <img class="h-16 w-16" src="https://openglassicons.pages.dev/100glassIcons/Group%20195.svg" alt="">
+                    <img class="h-16 w-16" :src="`/src/assets/img/100glassIcons/${item.categoryIcon}`" />
+
                 </div>
                 <p class="  "> {{ item.categoryName }} </p>
             </div>
@@ -16,7 +17,7 @@
                 @click="setCategory(item.categoryId, item.categoryName)"
                 :class="['transition-all duration-300 cursor-pointer bg-blue-50 w-52 h-32 hover:bg-clifford hover:text-white items-center justify-center text-hard font-bold rounded-lg shadow-lg flex flex-col hover:shadow-none']">
                 <div class="flex justify-center  m-2">
-                    <img class="h-16 w-16" src="https://openglassicons.pages.dev/100glassIcons/Group%20195.svg" alt="">
+                    <img class="h-16 w-16" :src="`/src/assets/img/100glassIcons/${item.categoryIcon}`" />
                 </div>
                 <p class="  "> {{ item.categoryName }} </p>
             </div>

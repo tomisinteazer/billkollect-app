@@ -6,7 +6,7 @@
 
 
 
-        <section class="w-full lg:py-20 py-10">
+        <section class="w-full lg:py-14 py-10">
 
             <quicklinksslider></quicklinksslider>
             <search-biller-component></search-biller-component>

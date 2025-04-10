@@ -75,6 +75,10 @@
 
                         <!-- Custom Fields -->
                         <div v-for="field in sortedCustomFields" :key="field.variableId" class="grid gap-2">
+
+                            <p class="text-sm text-red-500" v-if="field.validation">
+                                Validation Required
+                            </p>
                             <label :for="field.variable_name" class="block text-sm font-medium text-zinc-700">
                                 {{ field.display_name }} {{ field.required ? '*' : '' }}
                             </label>
@@ -95,6 +99,19 @@
                                 v-model="formData[field.variable_name]" :required="field.required"
                                 class="p-2 border border-zinc-300 rounded-md"
                                 :placeholder="`Enter ${field.display_name}`" />
+
+                            <input v-else-if="field.type === 'date'" :id="field.variable_name" type="date"
+                                v-model="formData[field.variable_name]" :required="field.required"
+                                class="p-2 border border-zinc-300 rounded-md"
+                                :placeholder="`Enter ${field.display_name}`" />
+
+
+                            <input v-else-if="field.type === 'numeric'" :id="field.variable_name" type="number"
+                                v-model="formData[field.variable_name]" :required="field.required"
+                                class="p-2 border border-zinc-300 rounded-md"
+                                :placeholder="`Enter ${field.display_name}`" />
+
+
 
                             <!-- Default input for other types -->
                             <input v-else :id="field.variable_name" type="text" v-model="formData[field.variable_name]"
