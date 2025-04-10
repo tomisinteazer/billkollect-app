@@ -65,6 +65,21 @@
                                         </div>
                                         <p class="text-xl my-2">{{ result.billerName }}</p>
                                     </div>
+
+                                    <div @click="setBiller('DEMOMDA', 'DEMOMDA', 'https://openglassicons.pages.dev/100glassIcons/Group%2098.svg')"
+                                        v-if="search.searchQuery === 'DEMOMDA' || search.searchQuery === 'demomda'"
+                                        class="flex flex-col items-center justify-center bg-blue-100/50 hover:bg-clifford hover:text-white text-hard backdrop-blur-md rounded-lg text-center transition-all duration-300 cursor-pointer w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.5rem)] p-4">
+                                        <div class="flex justify-center my-2">
+
+
+                                            <img class="h-20 w-20"
+                                                src="https://openglassicons.pages.dev/100glassIcons/Group%20195.svg"
+                                                alt="">
+
+
+                                        </div>
+                                        <p class="text-xl my-2">DEMOMDA</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
