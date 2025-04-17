@@ -14,7 +14,7 @@ export const useBillersByCategoryStore = defineStore('billersBycategory', {
   }),
 
   getters: {
-    noOfBillers: (state) => state.billersinCategory.length? state.billersinCategory.length : 0,
+    noOfBillers: (state) => state.billersinCategory.length ? state.billersinCategory.length : 0,
   },
 
   // Actions to fetch categories
@@ -39,7 +39,7 @@ export const useBillersByCategoryStore = defineStore('billersBycategory', {
         // Parse JSON response
         let billers = await response.json()
         this.billersinCategory = billers.data !== null ? billers.data : [];
-        console.log(this.billersinCategory)
+        // console.log(this.billersinCategory)
        
       } catch (error) {
         // Handle potential errors

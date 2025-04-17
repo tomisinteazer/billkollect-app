@@ -31,7 +31,7 @@ export const useCategoriesStore = defineStore('categories', {
         
         // Parse JSON response
         let categories = await response.json()
-        console.log(categories.data)
+        // console.log(categories.data)
         this.categories = categories.data.sort((a, b) => {
             // Compare the lengths of category names
             return a.orderId - b.orderId;
