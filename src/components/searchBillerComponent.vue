@@ -36,8 +36,14 @@
                             v-if="search.searchQuery.length > 0">
                             <!-- Categories of Billers -->
                             <div v-if="search.loading">
-                                <h2 class="text-hard text-center lg:text-4xl text-xl pb-8 pt-4">Loading ...
-                                </h2>
+                                <div class="flex justify-center mb-6">
+                                    <div class="w-20 h-20 rounded-full flex items-center justify-center">
+                                        <!-- Simulated spinner/icon -->
+                                        <div
+                                            class="w-16 h-16 border-4 border-clifford border-t-transparent rounded-full animate-spin ">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <h2 class="text-hard text-center lg:text-4xl text-xl pb-8 pt-4" v-else>
                                 <span v-if="search.searchResult.length != 0">Are you looking for
