@@ -1,44 +1,30 @@
 <template>
-
-
   <section class="bgpolka">
 
-    <section class="fade-in-left">
-      <navigationbar title=" me" />
 
-      <router-link to="/login">
-        <div class="bg-clifford  hover:bg-hard p-4 text-center">
-          <p class="text-white font-semibold text-sm">
-            Please sign in to get access to more services →
-          </p>
-        </div>
-      </router-link>
+    <router-link to="/login">
+      <div class="bg-clifford  hover:bg-hard p-4 text-center">
+        <p class="text-white font-semibold text-sm">
+          Please sign in to get access to more services →
+        </p>
+      </div>
+    </router-link>
 
 
-      <router-link to="/" class="flex justify-center" v-if="this.$route.path !== '/' && this.$route.path !== '/login'">
-        <button
-          class="flex mt-8 bg-clifford hover:bg-hard title-font p-4 font-medium items-center md:justify-start justify-center text-zinc-100 rounded">
-
-          <img src="https://openglassicons.pages.dev/100glassIcons/Group%20202.svg" alt="" class="pl-2">
-
-          <span class="text-xl pr-4">Home</span>
-        </button>
-      </router-link>
+    <router-link to="/" class="flex justify-center" v-if="this.$route.path !== '/' && this.$route.path !== '/login'">
+      <button
+        class="flex mt-8 bg-clifford hover:bg-hard title-font p-4 font-medium items-center md:justify-start justify-center text-zinc-100 rounded">
+        <img src="https://openglassicons.pages.dev/100glassIcons/Group%20202.svg" alt="" class="pl-2">
+        <span class="text-xl pr-4">Home</span>
+      </button>
+    </router-link>
 
 
+    <router-view v-slot="{ Component }">
       <transition name="slide-fade">
-
-        <RouterView />
-
+        <component :is="Component" />
       </transition>
-
-
-
-      <Footer />
-
-
-    </section>
-
+    </router-view>
 
   </section>
 </template>
@@ -49,9 +35,12 @@ import { useCategoriesStore } from './stores/categories'
 export default {
   name: 'App',
 
-  mounted() {
-    // Fetch categories when component is created
-    useCategoriesStore().fetchCategories()
+  mounted: async function () {
+    try {
+      await useCategoriesStore().fetchCategories()
+    } catch (error) {
+      console.error('Failed to fetch categories:', error)
+    }
   }
 }
 
