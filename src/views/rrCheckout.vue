@@ -87,7 +87,7 @@ export default {
                     const xhr = new XMLHttpRequest();
                     xhr.open("GET", "https://remita.net/");
                     xhr.send();
-                    window.location.href = "https://remita.net";
+
                 },
                 onError: (response) => {
                     console.log('callback Error Response', response);
@@ -98,7 +98,10 @@ export default {
                     console.log("closed");
                     setTimeout(() => {
                         if (!this.paymentProcessed) {
-                            window.location.href = "https://facebook.com";
+                            console.log("Payment was not completed. ");
+                            this.paymentProcessed = true;
+                        } else {
+                            console.log("Payment was completed successfully.");
                         }
                     }, 2000);
                 }
